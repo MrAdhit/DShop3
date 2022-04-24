@@ -468,17 +468,17 @@ public final class LangUtil
             ccLang.get().addDefault("TRADE.BUY_ONLY_LORE", "&fThis item cannot be sold.");
             ccLang.get().addDefault("TRADE.SELL_ONLY_LORE", "&fThis item cannot be purchased.");
             ccLang.get().addDefault("TRADE.BALANCE", "&3My balance");
-            ccLang.get().addDefault("TRADE.PRICE", "&6✚ &fBuy price:/   &c${num}");
-            ccLang.get().addDefault("TRADE.SELL_PRICE", "&6✚ &fSell price:/   &a${num}");
-            ccLang.get().addDefault("TRADE.BUY", "&cBuy");
-            ccLang.get().addDefault("TRADE.SELL", "&2Sell");
+            ccLang.get().addDefault("TRADE.PRICE", "&6✚ &fBuy price:/   &a${num}");
+            ccLang.get().addDefault("TRADE.SELL_PRICE", "&6✚ &fSell price:/   &c${num}");
+            ccLang.get().addDefault("TRADE.BUY", "&aBuy");
+            ccLang.get().addDefault("TRADE.SELL", "&cSell");
             ccLang.get().addDefault("TRADE.STOCK", "&8Stock: ");
             ccLang.get().addDefault("TRADE.STACKS", "&8{num} Stacks");
             ccLang.get().addDefault("TRADE.INF_STOCK", "&8Infinite");
             ccLang.get().addDefault("TRADE.SHOP_BAL_INF", "&fUnlimited");
             ccLang.get().addDefault("TRADE.SHOP_BAL", "&3Shop account balance \n&f{num}");
-            ccLang.get().addDefault("TRADE.CLICK_TO_BUY", "&c[Click to Buy &f{amount} &cpieces]");
-            ccLang.get().addDefault("TRADE.CLICK_TO_SELL", "&a[Click to Sell &f{amount} &apieces]");
+            ccLang.get().addDefault("TRADE.CLICK_TO_BUY", "&a[Click to Buy &f{amount} &apieces]");
+            ccLang.get().addDefault("TRADE.CLICK_TO_SELL", "&c[Click to Sell &f{amount} &cpieces]");
 
             ccLang.get().addDefault("PAGE_EDITOR_TITLE", "&3Page Editor");
             ccLang.get().addDefault("PAGE_EDITOR.PREV", "&f<<");

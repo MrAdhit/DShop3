@@ -273,8 +273,8 @@ public final class ItemTrade extends InGameUI
         if (player.hasPermission(P_ADMIN_SHOP_EDIT))
             buyLore.add(t(player,"TRADE.TOGGLE_BUYABLE"));
 
-        CreateButton(SELL_ONLY_TOGGLE, Material.GREEN_STAINED_GLASS, t(player, "TRADE.SELL"), sellLore);
-        CreateButton(BUY_ONLY_TOGGLE, Material.RED_STAINED_GLASS, t(player, "TRADE.BUY"), buyLore);
+        CreateButton(SELL_ONLY_TOGGLE, Material.RED_STAINED_GLASS, t(player, "TRADE.SELL"), sellLore);
+        CreateButton(BUY_ONLY_TOGGLE, Material.GREEN_STAINED_GLASS, t(player, "TRADE.BUY"), buyLore);
     }
 
     private void CreateTradeButtons()
