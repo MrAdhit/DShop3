@@ -8,6 +8,7 @@ import me.sat7.dynamicshop.utilities.ItemsUtil;
 import me.sat7.dynamicshop.utilities.LangUtil;
 import me.sat7.dynamicshop.utilities.ShopUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -71,14 +72,19 @@ public final class StartPage extends InGameUI
                 String name = " ";
                 if (cs.contains(s + ".displayName"))
                 {
-                    name = cs.getConfigurationSection(s).getString("displayName");
+                    name = ChatColor.translateAlternateColorCodes('&', cs.getConfigurationSection(s).getString("displayName"));
                 }
 
                 ArrayList<String> tempList = new ArrayList<>();
                 if (cs.contains(s + ".lore"))
                 {
-                    String[] lore = cs.getConfigurationSection(s).getString("lore").split(ccStartPage.get().getString("Options.LineBreak"));
-                    tempList.addAll(Arrays.asList(lore));
+                    String[] lores = ChatColor.translateAlternateColorCodes('&', cs.getConfigurationSection(s).getString("lore")).split(ccStartPage.get().getString("Options.LineBreak"));
+                    ArrayList<String> lofter = new ArrayList<>();
+                    lofter.add(" ");
+                    lofter.addAll(Arrays.asList(lores));
+                    lofter.add(" ");
+                    lofter.add(t(player, "START_PAGE.DEFAULT_SHOP_LORE"));
+                    tempList.addAll(lofter);
                 }
 
                 if (player.hasPermission(P_ADMIN_SHOP_EDIT))

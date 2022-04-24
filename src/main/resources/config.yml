@@ -1,5 +1,5 @@
 Language: en-US
-Prefix: §3DShop3 §7| §f
+Prefix: '&3DShop3 &7| &f'
 
 Command.UseShopCommand: true
 Command.OpenStartPageInsteadOfDefaultShop: true

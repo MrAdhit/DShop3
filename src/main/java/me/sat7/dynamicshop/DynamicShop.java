@@ -113,6 +113,7 @@ public final class DynamicShop extends JavaPlugin implements Listener
         hookIntoJobs();
         InitPapi();
 
+        console.sendMessage(Constants.DYNAMIC_SHOP_PREFIX + " Modified version");
         // 완료
         console.sendMessage(Constants.DYNAMIC_SHOP_PREFIX + " Enabled! :)");
 

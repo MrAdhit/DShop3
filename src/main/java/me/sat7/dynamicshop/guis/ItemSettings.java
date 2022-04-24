@@ -1,6 +1,7 @@
 package me.sat7.dynamicshop.guis;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import me.sat7.dynamicshop.DynaShopAPI;
 import me.sat7.dynamicshop.utilities.*;
@@ -194,8 +195,12 @@ public final class ItemSettings extends InGameUI
             }
         }
 
-        editBtnLore.add(t(null, "ITEM_SETTING.BUY").replace("{num}", n(buyPrice)));
-        editBtnLore.add(t(null, "ITEM_SETTING.SELL").replace("{num}", n(sellPrice)));
+//        editBtnLore.add(t(null, "ITEM_SETTING.BUY").replace("{num}", n(buyPrice)));
+        String[] buyLore = t(null, "ITEM_SETTING.BUY").replace("{num}", n(buyPrice)).split("/");
+        editBtnLore.addAll(Arrays.asList(buyLore));
+//        editBtnLore.add(t(null, "ITEM_SETTING.SELL").replace("{num}", n(sellPrice)));
+        String[] sellLore = t(null, "ITEM_SETTING.SELL").replace("{num}", n(sellPrice)).split("/");
+        editBtnLore.addAll(Arrays.asList(sellLore));
 
         CreateButton(RESET, white, "Reset", editBtnLore);
         CreateButton(ROUND_DOWN, white, t(null, "ITEM_SETTING.ROUND_DOWN"), editBtnLore);

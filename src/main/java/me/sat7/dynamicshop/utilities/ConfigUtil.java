@@ -3,6 +3,7 @@ package me.sat7.dynamicshop.utilities;
 import lombok.Getter;
 import lombok.Setter;
 import me.sat7.dynamicshop.DynamicShop;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import static me.sat7.dynamicshop.utilities.MathUtil.Clamp;
@@ -74,7 +75,7 @@ public final class ConfigUtil
             config.set(s, config.get(s));
         }
 
-        DynamicShop.dsPrefix_ = config.getString("Prefix");
+        DynamicShop.dsPrefix_ = ChatColor.translateAlternateColorCodes('&', config.getString("Prefix"));
 
         double salesTax = Clamp(config.getDouble("Shop.SalesTax"), 0, 99);
         config.set("Shop.SalesTax", salesTax);

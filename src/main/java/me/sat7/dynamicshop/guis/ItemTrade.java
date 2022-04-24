@@ -304,11 +304,11 @@ public final class ItemTrade extends InGameUI
             if (sell)
             {
                 lore = l("TRADE_VIEW.SELL");
-                priceText = t(player, "TRADE.SELL_PRICE").replace("{num}", n(price));
+                priceText = t(player, "TRADE.SELL_PRICE").replace("{num}", n(price)).replace("/", "\n");
             } else
             {
                 lore = l("TRADE_VIEW.BUY");
-                priceText = t(player, "TRADE.PRICE").replace("{num}", n(price));
+                priceText = t(player, "TRADE.PRICE").replace("{num}", n(price)).replace("/", "\n");
             }
 
             if (!sell)
@@ -346,7 +346,7 @@ public final class ItemTrade extends InGameUI
                 stockText = t(player, "SHOP.STOCK_2").replace("{stock}", stockText).replace("{max_stock}", maxStockText);
             } else
             {
-                stockText = t(player, "SHOP.STOCK").replace("{num}", stockText);
+                stockText = t(player, "SHOP.STOCK").replace("{num}", stockText).replace("/", "\n");
             }
 
             String deliveryChargeText = "";
@@ -364,15 +364,18 @@ public final class ItemTrade extends InGameUI
             String tradeLoreText = sell ? t(player, "TRADE.CLICK_TO_SELL") : t(player, "TRADE.CLICK_TO_BUY");
             tradeLoreText = tradeLoreText.replace("{amount}", n(amount));
 
-            lore = lore.replace("{\\nPrice}", priceText.isEmpty() ? "" : "\n" + priceText);
-            lore = lore.replace("{\\nStock}", stockText.isEmpty() ? "" : "\n" + stockText);
-            lore = lore.replace("{\\nDeliveryCharge}", deliveryChargeText.isEmpty() ? "" : "\n" + deliveryChargeText);
-            lore = lore.replace("{\\nTradeLore}", "\n" + tradeLoreText);
+            lore = lore.replaceAll("/", "\n");
+//            lore = lore.replace("{\\nPrice}", priceText.isEmpty() ? "" : "\n" + priceText);
+//            lore = lore.replace("{\\nStock}", stockText.isEmpty() ? "" : "\n" + stockText);
+//            lore = lore.replace("{\\nDeliveryCharge}", deliveryChargeText.isEmpty() ? "" : "\n" + deliveryChargeText);
+//            lore = lore.replace("{\\nTradeLore}", "\n" + tradeLoreText);
 
             lore = lore.replace("{Price}", priceText);
             lore = lore.replace("{Stock}", stockText);
             lore = lore.replace("{DeliveryCharge}", deliveryChargeText);
             lore = lore.replace("{TradeLore}", tradeLoreText);
+
+            lore = ChatColor.translateAlternateColorCodes('&', lore);
 
             String temp = lore.replace(" ", "");
             if (ChatColor.stripColor(temp).startsWith("\n"))

@@ -216,13 +216,13 @@ public final class Shop extends InGameUI
                     String sellText = "";
                     if (!tradeType.equalsIgnoreCase("SellOnly"))
                     {
-                        buyText = t(player, "SHOP.BUY_PRICE").replace("{num}", n(buyPrice));
+                        buyText = t(player, "SHOP.BUY_PRICE").replace("{num}", n(buyPrice)).replace("/", "\n");
                         buyText += showValueChange ? " " + valueChanged_Buy : "";
                     }
 
                     if (!tradeType.equalsIgnoreCase("BuyOnly"))
                     {
-                        sellText = t(player, "SHOP.SELL_PRICE").replace("{num}", n(sellPrice));
+                        sellText = t(player, "SHOP.SELL_PRICE").replace("{num}", n(sellPrice)).replace("/", "\n");
                         sellText += showValueChange ? " " + valueChanged_Sell : "";
                     }
 
@@ -239,9 +239,9 @@ public final class Shop extends InGameUI
                     if (!shopData.contains("Options.flag.hidestock"))
                     {
                         if (maxStock != -1 && shopData.contains("Options.flag.showmaxstock"))
-                            stockText = t(player, "SHOP.STOCK_2").replace("{stock}", stockStr).replace("{max_stock}", maxStockStr);
+                            stockText = t(player, "SHOP.STOCK_2").replace("{stock}", stockStr).replace("{max_stock}", maxStockStr).replace("/", "\n");
                         else
-                            stockText = t(player, "SHOP.STOCK").replace("{num}", stockStr);
+                            stockText = t(player, "SHOP.STOCK").replace("{num}", stockStr).replace("/", "\n");
                     }
 
                     String tradeLoreText = "";
@@ -257,13 +257,7 @@ public final class Shop extends InGameUI
                         }
                         itemMetaLoreText = itemMetaLoreText.substring(0, itemMetaLoreText.length() - 2);
                     }
-
-                    lore = lore.replace("{\\nBuy}", buyText.isEmpty() ? "" : "\n" + buyText);
-                    lore = lore.replace("{\\nSell}", sellText.isEmpty() ? "" : "\n" + sellText);
-                    lore = lore.replace("{\\nStock}", stockText.isEmpty() ? "" : "\n" + stockText);
-                    lore = lore.replace("{\\nPricingType}", pricingTypeText.isEmpty() ? "" : "\n" + pricingTypeText);
-                    lore = lore.replace("{\\nTradeLore}", tradeLoreText.isEmpty() ? "" : "\n" + tradeLoreText);
-                    lore = lore.replace("{\\nItemMetaLore}", itemMetaLoreText.isEmpty() ? "" : "\n" + itemMetaLoreText);
+                    lore = lore.replaceAll("/", "\n");
 
                     lore = lore.replace("{Buy}", buyText);
                     lore = lore.replace("{Sell}", sellText);
@@ -271,6 +265,8 @@ public final class Shop extends InGameUI
                     lore = lore.replace("{PricingType}", pricingTypeText);
                     lore = lore.replace("{TradeLore}", tradeLoreText);
                     lore = lore.replace("{ItemMetaLore}", itemMetaLoreText);
+
+                    lore = ChatColor.translateAlternateColorCodes('&', lore);
 
                     String temp = lore.replace(" ","");
                     if(ChatColor.stripColor(temp).startsWith("\n"))
@@ -414,6 +410,7 @@ public final class Shop extends InGameUI
         shopLore = shopLore.replace("{ShopBalance}", finalShopBalanceText);
         shopLore = shopLore.replace("{ShopHour}", finalShopHourText);
         shopLore = shopLore.replace("{ShopPosition}", finalShopPosText);
+        shopLore = ChatColor.translateAlternateColorCodes('&', shopLore);
 
         String temp = shopLore.replace(" ","");
         if(ChatColor.stripColor(temp).startsWith("\n"))
