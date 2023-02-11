@@ -399,6 +399,8 @@ public final class DynamicShop extends JavaPlugin implements Listener
     @Override
     public void onDisable()
     {
+        DynamicShop.ccUser.save();
+
         Bukkit.getScheduler().cancelTasks(this);
         console.sendMessage(Constants.DYNAMIC_SHOP_PREFIX + " Disabled");
     }
